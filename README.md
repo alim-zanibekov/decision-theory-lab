@@ -63,7 +63,7 @@ Output
 
 Dot
 
-![N|Solid](https://drive.google.com/uc?export=view&id=1dg5Q56XAJA5hRumc4cjduvagZx58EIAS)
+![N|Solid](https://raw.githubusercontent.com/AlimZanibekov/DecisionTheoryIT/master/examples/dot.png)
 
 ### Practical part
 
