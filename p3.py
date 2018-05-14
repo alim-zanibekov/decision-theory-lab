@@ -282,9 +282,5 @@ if __name__ == '__main__':
             [0, 0, 0, 0, 1]
         ]
 
-        f = open('out.txt', 'w')
-        dot_f = open('data.dot', 'w')
-        calculate(matrix, reverses, w, names=names, alternatives=alternatives, file=None, dot_out=dot_f, name='Провайдер')
-        f.close()
-        dot_f.close()
+        calculate(matrix, reverses, w, names=names, alternatives=alternatives, name='Провайдер')
     hide()

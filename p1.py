@@ -15,14 +15,20 @@ def calculate(my_matrix, file=None, image=None):
     print()
     s1, s2, gs, log_i = iteration(my_matrix)
     print('\nIteration method:')
-    print(s1)
-    print(s2)
+    print('A: ', end='')
+    print_vector(s1)
+    print('B: ', end='')
+    print_vector(s2)
+    print('V: ', end='')
     print(gs.numerator / gs.denominator)
 
     print('\nSimplex method:')
     s1, s2, gs, (log_s, result_s) = simplex(my_matrix, minimize=False)
-    print(s1)
-    print(s2)
+    print('A: ', end='')
+    print_vector(s1)
+    print('B: ', end='')
+    print_vector(s2)
+    print('V: ', end='')
     print(gs.numerator / gs.denominator)
 
     mat, my_indexes, my_log = clean_matrix(my_matrix)
@@ -37,16 +43,20 @@ def calculate(my_matrix, file=None, image=None):
     my_indexes = (my_indexes[1], my_indexes[0], my_indexes[3], my_indexes[2])
 
     fig = plt.figure(figsize=(10, 12))
-    ax2 = fig.add_subplot(211)
-    ax1 = fig.add_subplot(212)
+    ax1 = fig.add_subplot(211)
+    ax2 = fig.add_subplot(212)
     ax1.grid(True)
     ax2.grid(True)
+
+    print('\nChart method:')
     s1, s2, gs, plot = chart(mat, ax1, ind=my_indexes, prefix='A')
     chart(mat, ax2, ind=my_indexes, prefix='B', reverse=True)
 
-    print('\nChart method:')
-    print(s1)
-    print(s2)
+    print('A: ', end='')
+    print_vector(s1)
+    print('B: ', end='')
+    print_vector(s2)
+    print('V: ', end='')
     print(gs)
     if image:
         fig.savefig(image)
@@ -81,7 +91,7 @@ def calculate(my_matrix, file=None, image=None):
         print('Step ' + str(_k) + ':')
         print_matrix(o)
     print('\nSimplex answer:')
-    print(result_s)
+    print_vector(result_s)
 
     sys.stdout = orig_stdout
 

@@ -1,5 +1,12 @@
 from fractions import Fraction
 from math import *
+F = Fraction
+
+
+class Fraction(F):
+    def __str__(self):
+        print(0)
+        return "{}/{]".format(self.numerator, self.denominator)
 
 
 def iteration(matrix):
@@ -393,7 +400,7 @@ def chart(matrix, ax, ind=(), maximize=False, prefix='', reverse=False):
         t_matrix[i2].copy()
     ]
     if maximize:
-        a.reverse()
+        a = transpose(a)
     else:
         a[0].reverse()
         a[1].reverse()
@@ -406,14 +413,16 @@ def chart(matrix, ax, ind=(), maximize=False, prefix='', reverse=False):
     if len(ind) != 0:
         ast, bst, n, m = ind
         s2t = [0] * m
+        if len(bst) != 2:
+            bst = [bst[i1], bst[i2]]
         s2t[bst[0]] = _s2t[0]
         s2t[bst[1]] = _s2t[1]
         s1t = [0] * n
         s1t[ast[0]] = _s1t[0]
         s1t[ast[1]] = _s1t[1]
 
-        return s2t, s1t, game_sum, plt
-    return _s2t, _s1t, game_sum, plt
+        return s1t, s2t, game_sum, plt
+    return _s1t, _s2t, game_sum, plt
 
 
 def equal_points(p1, p2):
