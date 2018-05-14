@@ -1,12 +1,5 @@
 from fractions import Fraction
 from math import *
-F = Fraction
-
-
-class Fraction(F):
-    def __str__(self):
-        print(0)
-        return "{}/{]".format(self.numerator, self.denominator)
 
 
 def iteration(matrix):
